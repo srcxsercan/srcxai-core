@@ -67,8 +67,66 @@ Depending on the type of your engine, it may require certain parameters to be in
 
 <details>
   <summary>View More Info</summary>
-	
-### 
-	
+
+
+### Step by Step Quick Start Guide
+The engine development quick start is divided into seven tutorials that should be completed in order. Because some of the steps require testing and review, the time to complete the steps can vary. However, you can stop at any step in the process and pick up where you left off when you’re ready.
+
+ **1. Create your Engine:** Building an engine in Veritone begins with a few basic steps that define the general details about your technology and give scope to the services it will provide and the internal structures it will support. [VIEW MORE](https://docs.veritone.com/#/engines/quick-start/step-1-create-an-engine)
+ 
+ **2. Construct your Code:** Engines in Veritone are designed with a functional architecture that ensures easy integration to receive tasks, perform work, and return responses. The task processing pipeline follows a logical sequence of actions to fetch the input, retrieve a media asset, process the data, output the results to an asset, and send insights back to Veritone. [VIEW MORE](https://docs.veritone.com/#/engines/quick-start/step-2-construct-code)
+ 
+ **3. Create your Engine Manifest:** Every container uploaded to Veritone for an engine should include a manifest.json file, which contains important information about your engine and build. [VIEW MORE](https://docs.veritone.com/#/engines/quick-start/step-3-manifest)
+ 
+ **4. Package and Upload your Engine Build** When your engine container is created, your manifest file is built, and your code is set, it's time to upload a build. A build is uploaded as a Docker image, which is a package that includes everything needed to run your software, including the code, libraries, environment variables, config files, and manifest file. [VIEW MORE](https://docs.veritone.com/#/engines/quick-start/step-4-upload-build)
+ 
+ **5. Submit a Build for Approval** After your build has passed the compliance testing and is in the _Available_ state, the next step is to submit it to Veritone for review by one of our team members. The review process may take up to a business day to complete. Once reviewed, the build status will change to _Approved_ or _Disapproved_. [VIEW MORE](https://docs.veritone.com/#/engines/quick-start/step-5-submit-build)
+ 
+ **6. Deploy an Engine** Your engine has been built, tested, and approved. Now, with the click of a single button you will make it available to users in the Veritone Platform. [VIEW MORE](https://docs.veritone.com/#/engines/quick-start/step-6-deploy-engine)
+ 
+ **7. Manage an Active Engine or Build** Once your engine has been approved and deployed into the Veritone Platform their are various actions you can take against them. [VIEW MORE](https://docs.veritone.com/#/engines/quick-start/step-7-manage-engine)
+
+### Recommended Manifest Fields
+#### Schema Field Breakdown
+
+#### Example Manifest
+
+    
+    "engineId": "1234567",
+    "category": "speaker separation",
+    "preferredInputFormat": "audio/wav",
+    "outputFormats": ["application/json"],
+    "clusterSize": "large",
+
+
+[View Entire Engine Manifest Here](https://docs.veritone.com/#/engines/manifest)
+
+#### Leveraging Custom Fields
+**Use Cases**
+
+### Output Requirements: VTN Standard
+#### Schema Field Breakdown
+#### JSON Output Example
+
+    { 
+    series: [{
+    startTimeMs: 0,
+    stopTimeMs: 2250,
+    speakerId: 'A'
+    }, {
+    startTimeMs: 2250,
+    stopTimeMs: 5050,
+    speakerId: 'B'}, {
+    startTimeMs: 6000,
+    stopTimeMs: 10500,
+    speakerId: 'C'
+    }, {
+    startTimeMs: 12000,
+    stopTimeMs: 20000,
+    speakerId: 'A'}, 
+    {...}, ...]
+    }
+
+### Engine Testing Checklist
 	
 </details>
