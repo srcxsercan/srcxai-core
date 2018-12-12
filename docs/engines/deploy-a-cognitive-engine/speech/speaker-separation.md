@@ -87,7 +87,15 @@ The engine development quick start is divided into seven tutorials that should b
  **7. Manage an Active Engine or Build** Once your engine has been approved and deployed into the Veritone Platform their are various actions you can take against them. [VIEW MORE](https://docs.veritone.com/#/engines/quick-start/step-7-manage-engine)
 
 ### Recommended Manifest Fields
-#### Schema Field Breakdown
+
+| Field  | Format | Required |  Description
+|--|--|--|--|
+| engineId | String | Yes| The ID of your engine. You can find your engine ID at the top of the Engines section pages in the Developer Portal. | 
+| category | String | Yes| The category of the engine that you are providing. The available options are- avFingerprint- faceDetection- faceRecognition- geolocation- logoRecognition- metadata- objectRecognition- ocr- sentiment- transcription- transcoding- translationRefer to for more information about each engine category. | 
+| preferredInputFormat | String | Yes| Identify the MIME type of the input media format that is preferred by your engine. Choose one format only. The options that Veritone currently support are listed below:application/json, application/pdf, application/smil+xml, application/ttml+xml, application/x-flv, application/xmlaudio/aac, audio/flac, audio/midi, audio/mp4, audio/mpeg, audio/wav, audio/webmimage/gif, image/jpeg, image/tifftext/csv, text/html, text/plainvideo/3gpp, video/mp4, video/mpeg, video/ogg, video/quicktime, video/webm, video/x-m4v, video/x-ms-wmv, video/x-msvideoContact us if you have a MIME type that is not currently supported by Veritone. |
+| outputFormats | arrary of strings | Yes| List all of the MIME types of the media formats that your engine will output. The options that Veritone currently supports are listed below:application/json, application/pdf, application/smil+xml, application/ttml+xml, application/x-flv, application/xmlaudio/aac, audio/flac, audio/midi, audio/mp4, audio/mpeg, audio/wav, audio/x-wav, audio/webmimage/gif, image/jpeg, image/tifftext/csv, text/html, text/plainvideo/3gpp, video/mp4, video/mpeg, video/ogg, video/quicktime, video/webm, video/x-m4v, video/x-ms-wmv, video/x-msvideoContact us if you have a MIME type that is not currently supported by Veritone. |
+| clusterSize | String | Yes| The cluster size on which your engine should run: small, medium, large (defined below) |
+
 
 #### Example Manifest
 
@@ -127,6 +135,73 @@ The engine development quick start is divided into seven tutorials that should b
     {...}, ...]
     }
 
-### Engine Testing Checklist
+#### Logging
+    
+
+##### Build Modification Implications
+    
+
+#### Engine Idling and shut down
+    
+
+##### Build Modification Implications
+    
+
+#### Creating a “Trainable Engine”
+An engine must be configured to be library-enabled. To do so, a field called `libraryRequired` must be set to true on the engine definition. When you create your engine using the VDA "Create engine" wizard, check the "Library Required" option. You can also set this option after engine creation from the Configuration tab on the engine detail page.
+
+##### Use Cases
+    
+##### Build Modification Implications
+    
+
+###### Library Modes
+    
+
+-   Toggling it on
+    
+-   Toggling it off
+    
+
+###### Saving the model
+    
+###### Using an updated model
+    
+###### Examples & recommendations
+    
+
+#### Leveraging the Toolkit (Message Processing Mode Only)
+    
+
+##### Value
+    
+##### Adoption Language
+    
+##### Roadmap
+    
+##### Abstractions
+    
+##### Conditions
+    
+##### Restrictions
+    
+##### Walk Through
+    
+##### Testing With The Toolkit
+
+
+## Engine Testing Checklist
+Before submitting your build, use the following information to test it thoroughly.
+
+### Batch & Legacy Engines
+When either a Batch or Legacy engine is deployed to Veritone, a `PAYLOAD_FILE` environment variable is passed to them at runtime which contains the location of the payload file they need to process. The payload file itself contains all of the information the engine needs in order to process the job correctly. In order to test an engine of this type, you will need to simulate an incoming payload to verify your engine can process it successfully. You can get a valid payload to test locally with by following the steps below.
+#### Input Example
+### Testing Locally 
+#### Recommendations 
+### Testing on Developer 
+#### Generating Input Examples
+#### Generating Output Examples
+#### Using Ingestion Adapters
+### Security Testing: Locally 
 	
 </details>
