@@ -56,3 +56,4 @@ template_file () {
 }
 
 template_file /app/config.json.in
+
